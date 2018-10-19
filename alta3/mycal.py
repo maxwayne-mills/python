@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # Author: Clarence Mills
+''' Code to display calendar months based on year entered from user input '''
 
 # Module to display the month of the year
 import calendar
@@ -15,7 +16,7 @@ if verify_leap_year == False:
 else:
     is_leap_year = "Leap year"
 
-for month in range(1,13):   # Display all tweleve months, start at 1 as there is no '0' month
+for month in range(1, 13):   # Display all tweleve months, start at 1 as there is no '0' month
     smallcal = calendar.month(year_input, month)
-    print("Calendar: "  + is_leap_year )
+    print("Calendar: "  + is_leap_year)
     print(smallcal)
