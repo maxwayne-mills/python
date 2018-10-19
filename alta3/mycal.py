@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# Author: Clarence Mills
 
 # Module to display the month of the year
 import calendar
