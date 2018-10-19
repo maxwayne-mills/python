@@ -8,7 +8,7 @@ if year_input == '':
 
 # month_input = int(input('Enter the month to display'))
 
-for x in range(1,13):
-    lilcal = calendar.month(year_input, x)
+for month in range(1,13):
+    lilcal = calendar.month(year_input, month)
     print("Calendar:")
     print(lilcal)
