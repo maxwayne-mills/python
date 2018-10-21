@@ -4,6 +4,7 @@ import urllib.request
 import json
 ## Trace the ISS
 majortom = 'http://api.open-notify.org/astros.json'
+print(majortom)
 
 ## Call the webservice
 groundctrl = urllib.request.urlopen(majortom)
