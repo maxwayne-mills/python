@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # Author: Clarence Mils
 
-''' Backup local Google to cloud ''' 
+''' Backup local Google drive to cloud ''' 
 
 import os
 import subprocess
