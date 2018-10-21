@@ -1,6 +1,5 @@
 #!/usr/bin/env python3
 # Author: Clarence Mils
-
 ''' Backup local Google drive to cloud ''' 
 
 import os
@@ -16,4 +15,5 @@ def main():
         #subprocess.Popen('make')
         subprocess.call('make')
 
+# Run program
 main()
