@@ -10,7 +10,7 @@ user_dirs = ['/home/cmills/Documents/google_drive_clarence_mills','/home/cmills/
 def main():
     for x in user_dirs:
         subprocess.call('clear')
-        print('Backuping up google drive: ' + x )
+        print('Backuping up google drive: ' + x + '\n')
         os.chdir(user_dirs[0])
         #subprocess.Popen('make')
         subprocess.call('make')
