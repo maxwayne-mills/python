@@ -12,7 +12,7 @@ dir_dest = '/home/cmills/bin'
 file_dest = '/home/cmills/bin/dropbox.py'
 
 # Download Dropbox app
-print('Downloading Drobox python script from ' + url  + '\n')
+print('Downloading Drobox python script from ' + url  + ' to ' + file_download_dest + '\n')
 urllib.request.urlretrieve(url,file_download_dest)
 
 # Create bin directory within user home.
