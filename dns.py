@@ -1,12 +1,12 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import os
 from subprocess import call
 
-def resolv_ip(servername):
-  os.system('dig "servername" +short')
-
 server = str("www.clarencemills.com")
-resolv_ip(server)
 
-call('dig www.clarencemills.com')
+def resolv_ip(server_name):
+    answer = call(['dig', server_name, '+short'])
+    return answer
+
+resolv_ip(server)
