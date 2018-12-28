@@ -17,7 +17,7 @@ urllib.request.urlretrieve(url,file_download_dest)
 
 # Create bin directory within user home.
 if not os.path.isdir(dir_dest):         #check if directory exists first
-    print('Creating bin directory')
+    print('Creating bin directory' + dir_dest )
     os.mkdir(dir_dest)                  # Create directory
 else:
     print(dir_dest + ' direectory exists')
