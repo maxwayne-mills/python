@@ -7,6 +7,8 @@ import sys
 # Open csv file passed in from the command line containing links
 csvfile = open(sys.argv[1],'r')
 
+linenum = int(input("Enter line number: " )) # convert string to an integer using int function
+
 # Read in all contents of the file
 filereader = csv.reader(csvfile)
 
@@ -14,7 +16,7 @@ filereader = csv.reader(csvfile)
 linkdata = list(filereader)
 
 # Ignore header and get the second column from the first row of links
-link = linkdata[4][1]
+link = linkdata[linenum][1] 
 
-# Open the link in a Google chrome igconito tab
+# Open the link in an incognito Google chrome tab
 wb.get('google-chrome %s --incognito').open_new_tab(link)
