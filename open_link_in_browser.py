@@ -1,22 +1,33 @@
 #!/usr/bin/env python3
+''' Author: Clarence Mills '''
+''' Script to open a url contained within a file '''
 
 import webbrowser as wb
+import os
 import csv
 import sys
 
-# Open csv file passed in from the command line containing links
+os.popen("clear")   # Clear the screen
+
+# Open csv file passed in from the command line as the first argument
 csvfile = open(sys.argv[1],'r')
 
-linenum = int(input("Enter line number: " )) # convert string to an integer using int function
-
-# Read in all contents of the file
+# Read in contents of the file 
 filereader = csv.reader(csvfile)
+next(filereader)   # Skip the header
 
 # Create a list of file contents
 linkdata = list(filereader)
 
-# Ignore header and get the second column from the first row of links
-link = linkdata[linenum][1] 
+n = 0
+for row_in_file in linkdata:
+    print(n,row_in_file[1])     # Print line number and a row from the file
+    n = n + 1                   # increment counter by 1
+
+linenum = int(input("Enter line number: " )) # convert string to an integer using the int function
+
+# load link variable based on line number entered by user and selecting the second column   
+link = linkdata[linenum][1]     # number 1 indicates to use the second column that contains the link
 
 # Open the link in an incognito Google chrome tab
 wb.get('google-chrome %s --incognito').open_new_tab(link)
