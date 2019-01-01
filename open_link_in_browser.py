@@ -17,17 +17,17 @@ filereader = csv.reader(csvfile)
 next(filereader)   # Skip the header
 
 # Create a list of file contents
-linkdata = list(filereader)
+link_data = list(filereader)
 
 n = 0
-for row_in_file in linkdata:
+for row_in_file in link_data:
     print(n,row_in_file[1])     # Print line number and a row from the file
     n = n + 1                   # increment counter by 1
 
 linenum = int(input("Enter line number: " )) # convert string to an integer using the int function
 
 # load link variable based on line number entered by user and selecting the second column   
-link = linkdata[linenum][1]     # number 1 indicates to use the second column that contains the link
+link = link_data[linenum][1]     # number 1 indicates to use the second column that contains the link
 
 # Open the link in an incognito Google chrome tab
 wb.get('google-chrome %s --incognito').open_new_tab(link)
