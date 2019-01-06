@@ -26,4 +26,14 @@ def middle_month():
             total = total + int(float(row[4]))
     print("Total spend for the 15 is: " + str(total))
 
-middle_month()
+def user_menu():
+        print("A. Mid month")
+        print("B. End of the month")
+        user_input = input("Make a selection a or b: ")
+        
+        if user_input == "a":
+                middle_month()
+        else:
+                list_bills()
+
+user_menu()
