@@ -1,19 +1,21 @@
 #!/usr/bin/env python3
+""" Display Bills by month,current day or the next week. """
 
 import csv
 import os
 
+path_to_file = "/home/cmills/Dropbox/personal/bill_list.csv"
+
+# Display contents of the Bills file
 def list_bills():
-    path_to_file = "/home/cmills/Dropbox/personal/bill_list.csv"
     file = open(path_to_file, newline='')
     next(file)  # Skip the header
     lines_in_file = csv.reader(file)
     for row in lines_in_file:
         print(row[1], row[2], row[4], row[0]) 
 
+# Display Bills for the 15, middle of the month
 def middle_month():
-    os.popen("clear")   # Clear the screen
-    path_to_file = "/home/cmills/Dropbox/personal/bill_list.csv"
     file = open(path_to_file, newline='')
     next(file)  # Skip the header
     lines_in_file = csv.reader(file)
