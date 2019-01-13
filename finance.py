@@ -4,45 +4,76 @@
 import csv
 import os
 import datetime
+import sys
 
+os.system("clear")
 path_to_file = "/home/cmills/Dropbox/personal/bill_list.csv"
+now = datetime.datetime.now()
+todays_date = (now.day)
 
 # Display contents of the Bills file
+
 def list_bills():
     file = open(path_to_file, newline='')
     next(file)  # Skip the header
     lines_in_file = csv.reader(file)
     for row in lines_in_file:
-        print(row[1], row[2], row[4], row[0]) 
+        print(row[1], row[2], row[4], row[0])
 
-# Display Bills for the current day
-def current_day():
-    #  Get today's date
-    today = datetime.datetime.now()
-    todays_date = (today.day)
-
-    # Open and read contents from the file
+def due_today():
     file = open(path_to_file, newline='')
-    next(file)                                  # Skip the header
-    lines_in_file = csv.reader(file)            # load contents of file into a variable in a list format
+    next(file)
+    lines_in_file = csv.reader(file)
 
-    # Search each row of the file for content that match's today's date
+    now = datetime.datetime.now()
+    todays_date = (now.day)
+    month = (now.month)
+    print(todays_date)
+
     total = 0
     for row in lines_in_file:
-        if str(todays_date) in row[2]:
-            print(row[1],row[2],row[4])
+        if todays_date in row:
+            print(row[1], row[2], row[4])
             total = total + int(float(row[4]))
 
-    print("Total spend for " + str(todays_date) + " is: " + str(total))
+    print("Total spend for " + str(month) + " " + str(todays_date) + " is: " + str(total))
 
-def user_menu():
-        print("A. Current Day")
-        print("B. End of the month")
-        user_input = input("Make a selection a or b: ")
 
-        if user_input == "a":
-                current_day()
-        else:
-                list_bills()
+# Display Bills for the 15, middle of the month
+def middle_month():
+    file = open(path_to_file, newline='')
+    next(file)  # Skip the header
+    lines_in_file = csv.reader(file)
 
-user_menu()
+    total = 0
+    for row in lines_in_file:
+        if "15" in row:
+            print(row[1], row[2], row[4])
+            total = total + int(float(row[4]))
+
+    print("Total spend for the 15 is: " + str(total))
+
+# Display Bills for the 30, end of the month
+def end_of_month():
+    file = open(path_to_file, newline='')
+    next(file)  # Skip the header
+    lines_in_file = csv.reader(file)
+
+    total = 0
+    for row in lines_in_file:
+        if "30" in row:
+            print(row[1], row[2], row[4])
+            total = total + int(float(row[4]))
+
+    print("Total spend for the 30 is: " + str(total))
+
+if int(len(sys.argv)) == 1:                     # Check if an option was passed
+    print(sys.argv[0] + " options: day,middle,month")
+elif sys.argv[1] == "day":
+    due_today()
+elif sys.argv[1] == "middle":
+    middle_month()
+elif sys.argv[1] == "month":
+    end_of_month()
+else:
+    list_bills()
