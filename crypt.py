@@ -6,17 +6,18 @@ import pyAesCrypt
 buffersize = 64 * 1024
 password = "foobar"
 
-#file = sys.argv[1]
-#print(file)
-
-# encrypt
+# encrypt Function
 def encrypt(file):
+    encrypted_file_name = file + ".aes"
     print("Encrypting file: " + file)
-    pyAesCrypt.encryptFile(file, "test_data.aes", password, buffersize)
+    pyAesCrypt.encryptFile(file,encrypted_file_name, password, buffersize)
 
-def decrypt():
-    pyAesCrypt.decryptFile("test_data.txt", "test_data.aes", password, buffersize)
+# Decrypt function
+def decrypt(file):
+    print("Decrypting file:" + file)
+    pyAesCrypt.decryptFile(file, "test_data.unc", password, buffersize)
 
+# Start program
 if int(len(sys.argv)) == 1:
     print(sys.argv[0] + " options: encrypt | decrypt")
 elif sys.argv[1] == "encrypt":
