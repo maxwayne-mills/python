@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import socket
 
-list = ['www.clarencemills.com','www.millsresidence.com','www.opensitesolutions.com','www.toolsforthecloud.com']
+list = ['www.clarencemills.com','www.opensitesolutions.com','www.toolsforthecloud.com']
 
 def get_ops(server_name, port):
     s = socket.socket()
@@ -11,5 +11,5 @@ def get_ops(server_name, port):
     s.close()
 
 for server_name in list:
-    port = 22
+    port = int(input("Enter port number: "))
     get_ops(server_name,port)
